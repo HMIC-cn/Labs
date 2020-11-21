@@ -1,9 +1,11 @@
 package org.hwj.FileManager.file.tool;
 
 import com.alee.utils.FileUtils;
+import org.hwj.FileManager.app.Main;
 import org.hwj.FileManager.constants.FileOperationConstant;
 import org.hwj.FileManager.message.ErrorMessage;
 import org.hwj.FileManager.message.NormalMessage;
+import org.hwj.FileManager.ui.pane.FileOperationDialog;
 
 import java.io.*;
 import java.nio.file.Path;
@@ -15,6 +17,7 @@ import java.nio.file.Paths;
  * @version 1.0
  */
 public class CopyTool {
+    private FileOperationDialog dialog;
 
     /**
      * 输入需要拷贝的路径和目标路径，进行拷贝
@@ -32,9 +35,14 @@ public class CopyTool {
         } else if (outputFile.exists()) {
             new ErrorMessage(FileOperationConstant.FILE_EXIST_ALREADY).showMessage();
         } else {
+            dialog = new FileOperationDialog(Main.mainFrame, "正在拷贝 " + inputFile.getName() + " 请等待");
+            dialog.display();
+
             boolean success = FileUtils.copyDirectory(inputFile, outputFile, true);
             if (success) new NormalMessage(FileOperationConstant.FILE_COPY_SUCCESSES_MESSAGE).showMessage();
             else new NormalMessage(FileOperationConstant.FILE_COPY_FAIL_MESSAGE).showMessage();
+
+            dialog.close();
         }
     }
 }

@@ -40,6 +40,7 @@ public class FileTree {
         treeRoot = new DefaultMutableTreeNode(rootName, true);
         DefaultMutableTreeNode root;
         tree = new JTree(treeRoot);
+
         init();
         for (File file : File.listRoots()) {
             root = new DefaultMutableTreeNode(file.getPath());
@@ -113,6 +114,9 @@ public class FileTree {
         // 选择响应，阻止访问一些拒绝访问的文件夹
         tree.addTreeSelectionListener(e -> {
             System.out.println("IN SELECT " + getSelFile());
+            if (treeRoot.equals(getSelNode())) {
+                getTree().setSelectionPath(new TreePath(treeRoot.getChildAt(0)));
+            }
             if (canEnter()) selectListenExpand(tree);
             else new ErrorMessage(FileOperationConstant.FILE_DIRECTORY_ENTER_NOT_PERMITTED).showMessage();
         });

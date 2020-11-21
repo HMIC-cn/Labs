@@ -3,6 +3,8 @@ package org.hwj.FileManager.ui.pane;
 import org.hwj.FileManager.file.structure.FileTree;
 
 import javax.swing.*;
+import java.net.InetAddress;
+import java.net.InterfaceAddress;
 
 /**
  * 封装有一个FileTree用于显示
@@ -14,7 +16,11 @@ public class FileTreePane extends JScrollPane {
 
     public FileTreePane() {
         fTree = new FileTree();
-        fTree.initDiskRootTree("Computer");
+        try {
+            fTree.initDiskRootTree(InetAddress.getLocalHost().getHostName());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         this.getViewport().add(fTree.getTree());
         this.setWheelScrollingEnabled(true);
     }

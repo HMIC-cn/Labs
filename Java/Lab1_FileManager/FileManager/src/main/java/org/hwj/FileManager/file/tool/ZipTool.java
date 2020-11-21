@@ -3,7 +3,7 @@ package org.hwj.FileManager.file.tool;
 import org.apache.commons.io.FileUtils;
 import org.hwj.FileManager.constants.FileOperationConstant;
 import org.hwj.FileManager.message.ErrorMessage;
-import org.hwj.FileManager.ui.frame.ProgressFrame;
+import org.hwj.FileManager.ui.pane.FileProgressPane;
 
 import java.io.*;
 import java.nio.file.Path;
@@ -12,7 +12,12 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 import java.util.zip.ZipOutputStream;
 
-
+/**
+ * 压缩工具类
+ * 提供文件或文件夹的压缩和解压功能
+ * @author Hwj
+ * @version 1.0
+ */
 public class ZipTool {
     private FileOutputStream fileOutputStream;
     private ZipOutputStream zipOutputStream;
@@ -26,6 +31,7 @@ public class ZipTool {
      */
     public boolean zipFile(File infile, File outfile) {
         try {
+            totSize = 0;
             fileOutputStream = new FileOutputStream(outfile);
             zipOutputStream = new ZipOutputStream(fileOutputStream);
             this.zip(infile.getAbsolutePath(), infile, zipOutputStream);
@@ -81,7 +87,7 @@ public class ZipTool {
      * @return 返回解压是否成功
      */
     public boolean unzipFile(File zipFile, String outfilePath) {
-        System.out.println("ZIPFILENAME " + zipFile.getName() + " " + zipFile.getName().endsWith(".zip"));
+        totSize = 0;
         if (!zipFile.getName().endsWith(".zip")) {
             new ErrorMessage(FileOperationConstant.FILE_SHOULD_CHOOSE_ZIP_MESSAGE).showMessage();
             return false;
@@ -90,8 +96,6 @@ public class ZipTool {
             StringBuilder builder = new StringBuilder(zipFile.getName());
             builder.delete(builder.length() - 4, builder.length());
             File outfile = new File(destination + File.separator + builder.toString());
-            System.out.println("IN " + zipFile.getAbsolutePath());
-            System.out.println("OUT " + outfile.getAbsolutePath());
             if (!outfile.exists()) outfile.mkdirs();
             try {
                 return this.unzip(zipFile.getAbsolutePath(), outfile.getAbsolutePath());
@@ -125,7 +129,8 @@ public class ZipTool {
             byte data[] = new byte[FileOperationConstant.BUFFER_LENGTH];
 
             totSize += FileUtils.sizeOf(file) / FileOperationConstant.FILE_PROGRESS_SMALL_TIMES;
-            System.out.println("TOTSIZE = " + totSize);
+            FileProgressPane.setValue((int) totSize);
+            FileProgressPane.setText(file.getAbsoluteFile());
 
             //获取文件相对于压缩文件夹根目录的子路径
             zos.putNextEntry(new ZipEntry(subPath));
@@ -144,6 +149,8 @@ public class ZipTool {
             } else {
                 for (File f : file.listFiles()) {
                     zip(srcRootDir, f, zos);
+                    FileProgressPane.setValue((int) totSize);
+                    FileProgressPane.setText(file);
                 }
             }
         }
@@ -158,8 +165,7 @@ public class ZipTool {
             if (!root.exists()) {
                 root.mkdir();
             }
-            BufferedOutputStream bos = null;
-            // zipped input
+            // 创建zip流
             fis = new FileInputStream(new File(source));
             zis = new ZipInputStream(new BufferedInputStream(fis));
             System.out.println(zis);
@@ -173,11 +179,14 @@ public class ZipTool {
                         parentPath.toFile().mkdirs();
                     }
                     unzipFileTo(file, zis);
+                    totSize += file.length() / FileOperationConstant.FILE_PROGRESS_SMALL_TIMES;
                 } else {
                     if (!file.exists()) {
                         file.mkdirs();
                     }
                 }
+                FileProgressPane.setValue((int) totSize);
+                FileProgressPane.setText(file);
                 zis.closeEntry();
             }
             zis.close();
@@ -192,7 +201,7 @@ public class ZipTool {
     private void unzipFileTo(File file, ZipInputStream zis) throws IOException {
         FileOutputStream fos = new FileOutputStream(file);
         BufferedOutputStream bos = new BufferedOutputStream(fos, FileOperationConstant.BUFFER_LENGTH);
-        int len = 0;
+        int len;
         byte data[] = new byte[FileOperationConstant.BUFFER_LENGTH];
         while ((len = zis.read(data, 0, FileOperationConstant.BUFFER_LENGTH)) != -1) {
             bos.write(data, 0, len);
@@ -200,5 +209,4 @@ public class ZipTool {
         bos.flush();
         bos.close();
     }
-
 }

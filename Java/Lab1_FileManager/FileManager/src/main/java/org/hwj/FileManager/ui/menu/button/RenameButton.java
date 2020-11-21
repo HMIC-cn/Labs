@@ -5,7 +5,6 @@ import org.hwj.FileManager.message.InputMessage;
 import org.hwj.FileManager.message.NormalMessage;
 
 import javax.swing.tree.DefaultMutableTreeNode;
-import javax.swing.tree.DefaultTreeModel;
 import java.io.File;
 
 /**

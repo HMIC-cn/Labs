@@ -2,9 +2,7 @@ package org.hwj.FileManager.ui.frame;
 
 
 import org.hwj.FileManager.ui.menu.button.Button;
-import org.hwj.FileManager.ui.pane.FileBackBar;
-import org.hwj.FileManager.ui.pane.FileTablePane;
-import org.hwj.FileManager.ui.pane.FileTreePane;
+import org.hwj.FileManager.ui.pane.*;
 import org.hwj.FileManager.ui.menu.bar.MenuBar;
 
 import javax.swing.*;
@@ -43,6 +41,22 @@ public class MainFrame extends JFrame {
         initFrame();
     }
 
+    public void lockAll() {
+        splitPane.setEnabled(false);
+        leftFileTreePane.getFileTree().getTree().setEnabled(false);
+        fileTablePane.getFileTable().getTable().setEnabled(false);
+        menuBar.setEnabled(false);
+        fileBackBar.setEnabled(false);
+    }
+
+    public void releaseAll() {
+        splitPane.setEnabled(true);
+        leftFileTreePane.getFileTree().getTree().setEnabled(true);
+        fileTablePane.getFileTable().getTable().setEnabled(true);
+        menuBar.setEnabled(true);
+        fileBackBar.setEnabled(true);
+    }
+
     /**
      * MainFrame的显示函数
      */
@@ -70,7 +84,11 @@ public class MainFrame extends JFrame {
 
         this.setJMenuBar(menuBar);
         this.add(fileBackBar, BorderLayout.NORTH);
-        this.add(splitPane);
+        this.add(splitPane, BorderLayout.CENTER);
+
+        FileProgressPane.initFileProgressPane();
+        this.add(FileProgressPane.getPanel(), BorderLayout.SOUTH);
+        FileProgressPane.closePane();
 
         leftFileTreePane
                 .getFileTree()

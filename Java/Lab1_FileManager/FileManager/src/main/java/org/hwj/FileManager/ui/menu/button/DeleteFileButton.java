@@ -3,9 +3,11 @@ package org.hwj.FileManager.ui.menu.button;
 import org.hwj.FileManager.app.Main;
 import org.hwj.FileManager.constants.FileOperationConstant;
 import org.hwj.FileManager.file.tool.DeleteNewTool;
+import org.hwj.FileManager.file.tool.FileSizeTool;
 import org.hwj.FileManager.message.ChooseMessage;
 import org.hwj.FileManager.message.NormalMessage;
 import org.hwj.FileManager.ui.pane.FileOperationDialog;
+import org.hwj.FileManager.ui.pane.FileProgressPane;
 
 import javax.swing.*;
 import javax.swing.tree.DefaultMutableTreeNode;
@@ -29,7 +31,7 @@ public class DeleteFileButton extends Button {
     }
 
     private void initActionListener() {
-        this.addActionListener(e -> {
+        this.addActionListener(e -> new Thread(() -> {
             System.out.println("Delete Click");
             File file = this.getFile();
             if (file != null) {
@@ -39,10 +41,19 @@ public class DeleteFileButton extends Button {
                 System.out.println(file.getAbsolutePath());
                 Integer chooseAns = (Integer) new ChooseMessage("你确定要删除 " + file.getAbsolutePath() + " 吗？").showMessage();
                 if (chooseAns.equals(JOptionPane.YES_OPTION)) {
+                    long size = FileSizeTool.getFileSize(file) / FileOperationConstant.FILE_PROGRESS_SMALL_TIMES;
+                    FileProgressPane.initProgress(0, (int) size);
+                    FileProgressPane.displayPane();
+                    Main.mainFrame.lockAll();
+                    Main.mainFrame.validate();
                     dialog = new FileOperationDialog(Main.mainFrame, "正在删除 " + file.getName() + " 请等待");
                     dialog.display();
+
                     deleteNewTool.deleteFile(file);
+
+                    FileProgressPane.closePane();
                     dialog.close();
+                    Main.mainFrame.releaseAll();
 
                     treeSelect.getTreeModel().removeNodeFromParent(node);
                     treeSelect.getFileTree().getTree().setSelectionPath(new TreePath(parentNode));
@@ -54,6 +65,6 @@ public class DeleteFileButton extends Button {
                     new NormalMessage(FileOperationConstant.FILE_DELETE_CANCEL_MESSAGE).showMessage();
                 }
             }
-        });
+        }).start());
     }
 }

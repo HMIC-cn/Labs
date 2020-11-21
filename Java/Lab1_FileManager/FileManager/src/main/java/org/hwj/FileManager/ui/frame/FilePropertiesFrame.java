@@ -2,13 +2,11 @@ package org.hwj.FileManager.ui.frame;
 
 import org.hwj.FileManager.file.tool.AttributeTool;
 
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 
 import javax.swing.BorderFactory;
-import javax.swing.Icon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -18,6 +16,7 @@ import javax.swing.JTextField;
 /**
  * 一个文件或文件夹的属性界面视图
  * 对已有代码做了一些适应性调整
+ * 修改了文件夹大小和数量统计的功能，使得结果符合实际，且速度提升
  * @author liugezi/FileManager
  */
 public class FilePropertiesFrame extends JFrame implements ActionListener {
@@ -66,7 +65,7 @@ public class FilePropertiesFrame extends JFrame implements ActionListener {
 			new Thread(() -> {
 				filesCount[0] = filesCount[1] = 0;
 				getFilesCount(file);
-				this.Include.setText(filesCount[0] + "个文件," + filesCount[1] + "个文件夹");
+				this.Include.setText(filesCount[0] + "个文件," + (filesCount[1]-1) + "个文件夹");
 			}).start();
 			new Thread(() -> this.Size.setText(attributeTool.getFileSize(file))).start();
 			this.Location.setText(file.getAbsolutePath());
