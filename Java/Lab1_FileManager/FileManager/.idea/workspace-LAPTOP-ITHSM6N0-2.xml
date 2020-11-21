@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="74bb91c6-0cb5-4c18-b474-a8f7d9e83861" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="D:\Software\Installation\Program\Java\Maven3\LocalWareHouse" />
+        <option name="mavenHome" value="D:\Software\Installation\Program\Java\Maven3\apache-maven-3.6.3" />
+        <option name="userSettingsFile" value="D:\Software\Installation\Program\Java\Maven3\apache-maven-3.6.3\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="downloadDocsAutomatically" value="true" />
+        <option name="downloadSourcesAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1k5dBBLIx6oJqrfpBmRaL1tXdAu" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="com.intellij.openapi.externalSystem.service.settings.ExternalSystemGroupConfigurable" value="ALL" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="org.hwj.FileManager.Menu.Pop" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Hwj\OneDrive\Learn\Course\Java程序设计\Lab1\FileManager\src\main\resources\icons" />
+      <recent name="C:\Users\Hwj\OneDrive\Learn\Course\Java程序设计\Lab1\FileManager\src\main\java\org\hwj\FileManager" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.ZipTool">
+    <configuration name="CopyTool" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.hwj.FileManager.file.tool.CopyTool" />
+      <module name="FileManager" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.hwj.FileManager.file.tool.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CryptTool" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.hwj.FileManager.file.tool.CryptTool" />
+      <module name="FileManager" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.hwj.FileManager.file.tool.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.hwj.FileManager.app.Main" />
+      <module name="FileManager" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.hwj.FileManager.app.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ZipTool" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.hwj.FileManager.file.tool.ZipTool" />
+      <module name="FileManager" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.hwj.FileManager.file.tool.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="FileManager-1.0-SNAPSHOT-jar-with-dependencies.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/target/FileManager-1.0-SNAPSHOT-jar-with-dependencies.jar" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ZipTool" />
+        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.CryptTool" />
+        <item itemvalue="JAR Application.FileManager-1.0-SNAPSHOT-jar-with-dependencies.jar" />
+        <item itemvalue="Application.CopyTool" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="74bb91c6-0cb5-4c18-b474-a8f7d9e83861" name="Default Changelist" comment="" />
+      <created>1604994250939</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1604994250939</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="320" y="47" key="#Inspections" timestamp="1605458483417">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="267" y="39" key="#Inspections/0.0.1280.720@0.0.1280.720" timestamp="1605196272713" />
+    <state x="320" y="47" key="#Inspections/0.0.1536.864@0.0.1536.864" timestamp="1605458483417" />
+    <state x="121" y="0" key="#Project_Structure" timestamp="1605145450171">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="121" y="0" key="#Project_Structure/0.0.1280.720@0.0.1280.720" timestamp="1605145450171" />
+    <state x="209" y="167" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1605460217842">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="96" y="16" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.720@0.0.1280.720" timestamp="1604999810154" />
+    <state x="209" y="167" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.864@0.0.1536.864" timestamp="1605460217842" />
+    <state x="362" y="161" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1605449709673">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="362" y="161" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.720@0.0.1280.720" timestamp="1605449709673" />
+    <state x="446" y="66" key="#com.intellij.ide.util.MemberChooser" timestamp="1605365513371">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="446" y="66" key="#com.intellij.ide.util.MemberChooser/0.0.1280.720@0.0.1280.720" timestamp="1605365513371" />
+    <state x="392" y="150" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1605145732053">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="392" y="150" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1280.720@0.0.1280.720" timestamp="1605145732053" />
+    <state x="162" y="284" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog" timestamp="1605533565694">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="162" y="284" key="#com.intellij.refactoring.move.MoveHandler.SelectRefactoringDialog/0.0.1280.720@0.0.1280.720" timestamp="1605533565694" />
+    <state x="408" y="228" width="467" height="272" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1605237637420">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="408" y="228" width="467" height="272" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1280.720@0.0.1280.720" timestamp="1605237637420" />
+    <state x="134" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1605164012647">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="134" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1280.720@0.0.1280.720" timestamp="1605164012647" />
+    <state x="371" y="107" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1605162856821">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="371" y="107" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1280.720@0.0.1280.720" timestamp="1605162856821" />
+    <state x="421" y="116" key="FileChooserDialogImpl" timestamp="1605501469739">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="421" y="116" key="FileChooserDialogImpl/0.0.1280.720@0.0.1280.720" timestamp="1605501469739" />
+    <state x="505" y="139" key="FileChooserDialogImpl/0.0.1536.864@0.0.1536.864" timestamp="1605460303439" />
+    <state width="1237" height="172" key="GridCell.Tab.0.bottom" timestamp="1605540863497">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state width="1237" height="172" key="GridCell.Tab.0.bottom/0.0.1280.720@0.0.1280.720" timestamp="1605540863497" />
+    <state width="1515" height="223" key="GridCell.Tab.0.bottom/0.0.1536.864@0.0.1536.864" timestamp="1605158701889" />
+    <state width="1237" height="172" key="GridCell.Tab.0.center" timestamp="1605540863497">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state width="1237" height="172" key="GridCell.Tab.0.center/0.0.1280.720@0.0.1280.720" timestamp="1605540863497" />
+    <state width="1515" height="223" key="GridCell.Tab.0.center/0.0.1536.864@0.0.1536.864" timestamp="1605158701889" />
+    <state width="1237" height="172" key="GridCell.Tab.0.left" timestamp="1605540863497">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state width="1237" height="172" key="GridCell.Tab.0.left/0.0.1280.720@0.0.1280.720" timestamp="1605540863497" />
+    <state width="1515" height="223" key="GridCell.Tab.0.left/0.0.1536.864@0.0.1536.864" timestamp="1605158701889" />
+    <state width="1237" height="172" key="GridCell.Tab.0.right" timestamp="1605540863497">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state width="1237" height="172" key="GridCell.Tab.0.right/0.0.1280.720@0.0.1280.720" timestamp="1605540863497" />
+    <state width="1515" height="223" key="GridCell.Tab.0.right/0.0.1536.864@0.0.1536.864" timestamp="1605158701889" />
+    <state x="205" y="19" key="Maven.ArtifactSearchDialog" timestamp="1605459169298">
+      <screen x="0" y="0" width="1536" height="864" />
+    </state>
+    <state x="171" y="16" key="Maven.ArtifactSearchDialog/0.0.1280.720@0.0.1280.720" timestamp="1605144595175" />
+    <state x="205" y="19" key="Maven.ArtifactSearchDialog/0.0.1536.864@0.0.1536.864" timestamp="1605459169298" />
+    <state x="142" y="0" width="1070" height="710" key="SettingsEditor" timestamp="1605501472929">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="142" y="0" width="1070" height="710" key="SettingsEditor/0.0.1280.720@0.0.1280.720" timestamp="1605501472929" />
+    <state x="170" y="0" width="1110" height="710" key="SettingsEditor/0.0.1536.864@0.0.1536.864" timestamp="1605460309062" />
+    <state x="199" y="21" key="new project wizard" timestamp="1605506235057">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="199" y="21" key="new project wizard/0.0.1280.720@0.0.1280.720" timestamp="1605506235057" />
+    <state x="587" y="212" key="refactoring.ChangeSignatureDialog" timestamp="1605195884028">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="587" y="212" key="refactoring.ChangeSignatureDialog/0.0.1280.720@0.0.1280.720" timestamp="1605195884028" />
+    <state x="297" y="161" key="run.anything.popup" timestamp="1605539219579">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="297" y="161" key="run.anything.popup/0.0.1280.720@0.0.1280.720" timestamp="1605539219579" />
+    <state x="303" y="41" width="672" height="678" key="search.everywhere.popup" timestamp="1605366352202">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="303" y="41" width="672" height="678" key="search.everywhere.popup/0.0.1280.720@0.0.1280.720" timestamp="1605366352202" />
+    <state x="363" y="272" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1605533114864">
+      <screen x="0" y="0" width="1280" height="720" />
+    </state>
+    <state x="363" y="272" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.0.1280.720@0.0.1280.720" timestamp="1605533114864" />
+  </component>
+</project>
