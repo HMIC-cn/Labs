@@ -1,10 +1,13 @@
 package org.hwj.FileManager.file.structure;
 
 import org.hwj.FileManager.file.tool.AttributeTool;
+import org.hwj.FileManager.file.tool.FileSizeTool;
 import org.hwj.FileManager.ui.menu.pop.PopMenu;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.File;
@@ -32,7 +35,27 @@ public class FileTable {
         super();
         model = new DefaultTableModel(columnNames, 0);
         fileTable = new JTable(model);
+        fileTable.setAutoCreateRowSorter(true);
         init();
+    }
+
+    /**
+     * TODO 重写CellRenderer使得大小排序正确
+     */
+    class MySizeTableCellRenderer extends DefaultTableCellRenderer {
+        @Override
+        public Component getTableCellRendererComponent(JTable table, Object value,
+                                                       boolean isSelected, boolean hasFocus, int row, int column) {
+            super.getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
+            long v = (long)value;
+            String str = null;
+            if(v/1024 <= 0) str = v + " B";
+            else if(v/1024/1024 <= 0 ) str = v/1024 + " KB";
+            else if(v/1024/1024/1024 <= 0 ) str = v/1024/1024 + " MB";
+            else str = v/1024/1024/1024 + " GB";
+            setText(str);
+            return this;
+        }
     }
 
     public File getSelFile() {
@@ -64,7 +87,6 @@ public class FileTable {
         fileTable.setDefaultEditor(Object.class, null);
         fileTable.setFillsViewportHeight(true);
         fileTable.getTableHeader().setReorderingAllowed(false);
-        fileTable.setAutoCreateRowSorter(true);
         fileTable.getSelectionModel().setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 
         // 向fileTable添加右键的弹出菜单
@@ -84,6 +106,5 @@ public class FileTable {
             @Override
             public void mouseExited(MouseEvent e) {}
         });
-
     }
 }

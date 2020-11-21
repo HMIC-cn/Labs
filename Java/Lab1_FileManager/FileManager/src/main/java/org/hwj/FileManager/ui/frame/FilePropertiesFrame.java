@@ -2,8 +2,7 @@ package org.hwj.FileManager.ui.frame;
 
 import org.hwj.FileManager.file.tool.AttributeTool;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.io.File;
 
 import javax.swing.BorderFactory;
@@ -28,6 +27,7 @@ public class FilePropertiesFrame extends JFrame implements ActionListener {
 	public JButton EnsureBtn;
 	private AttributeTool attributeTool = new AttributeTool();
 	private Integer[] filesCount = new Integer[2];
+	private Thread countThread = null, sizeThread = null;
 
 	public FilePropertiesFrame(File file) {
 		//文件右击选择属性时
@@ -62,12 +62,14 @@ public class FilePropertiesFrame extends JFrame implements ActionListener {
 			this.path = file.getAbsolutePath();
 			this.NameField.setText(file.getName());
 			this.Type.setText("文件夹");
-			new Thread(() -> {
+			countThread = new Thread(() -> {
 				filesCount[0] = filesCount[1] = 0;
 				getFilesCount(file);
 				this.Include.setText(filesCount[0] + "个文件," + (filesCount[1]-1) + "个文件夹");
-			}).start();
-			new Thread(() -> this.Size.setText(attributeTool.getFileSize(file))).start();
+			});
+			countThread.start();
+			sizeThread = new Thread(() -> this.Size.setText(attributeTool.getFileSize(file)));
+			sizeThread.start();
 			this.Location.setText(file.getAbsolutePath());
 			this.CreateTime.setText(attributeTool.getFileCreationTime(file));
 		}
@@ -75,6 +77,16 @@ public class FilePropertiesFrame extends JFrame implements ActionListener {
 		this.setLocationRelativeTo(null);
 		this.setVisible(true);
 		setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+		Thread finalCountThread = countThread;
+		Thread finalSizeThread = sizeThread;
+		this.addWindowListener(new WindowAdapter() {
+			@Override
+			public void windowClosing(WindowEvent e) {
+				finalCountThread.interrupt();
+				finalSizeThread.interrupt();
+				super.windowClosing(e);
+			}
+		});
 		this.setResizable(false);
 	}
 
@@ -84,6 +96,7 @@ public class FilePropertiesFrame extends JFrame implements ActionListener {
 	 * @param file 需要查询个数的目录
 	 */
 	private void getFilesCount(File file) {
+		if (!countThread.isAlive()) return;
 		if (file == null) return;
 		if (file.isFile()) {
 			filesCount[0]++;
